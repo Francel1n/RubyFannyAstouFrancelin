@@ -15,10 +15,8 @@ obj = JSON.parse(s)
 
 if inp == "gold" then
   puts obj["gold"]
-end
-if inp = "silver" then
+elseif inp == "silver"
   puts obj["silver"]
-end
-if inp = "platinium" then
+else
   puts obj["platinum"]
 end
