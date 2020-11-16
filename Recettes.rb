@@ -3,6 +3,9 @@ inp = gets
 puts "Et comment vas-tu"
 puts inp
 puts "?"
+puts "Quelle recette souhaites-tu voir ?"
+
+inp = gets
 
 require 'rubygems'
 require 'json'
@@ -10,6 +13,12 @@ require 'json'
 s = '{"gold":1271,"silver":1284, "platinum": 1270}'
 obj = JSON.parse(s)
 
-puts obj["gold"]
-puts obj["silver"]
-puts obj["platinum"]
+if inp == "gold" then
+  puts obj["gold"]
+end
+if inp = "silver" then
+  puts obj["silver"]
+end
+if inp = "platinium" then
+  puts obj["platinum"]
+end
