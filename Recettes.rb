@@ -15,10 +15,15 @@ obj = JSON.parse(s)
 
 if inp == "gold" then
   puts obj["gold"]
+<<<<<<< HEAD
 end
 if inp = "silver" then
   puts obj["silver"]
 end
 if inp = "platinium" then
   puts obj["platinum"]
+=======
+else
+  puts "déso j'ai pas trouvé ta reçette"
+>>>>>>> Francelin
 end
