@@ -27,7 +27,7 @@ recipesList.each_with_index do |recipe, index|
   counter = 0
   ingredientList.each do |ingredient|
     normalizedArray = recipe["ingredients"].keys.map(&:downcase)
-    #on fait un tableau(.keys)et on le met en minuscule
+    #on a un hash de nos ingredients ou on récupère les clés(.keys)et on le met en minuscule
 
     if normalizedArray.include?(ingredient) then
    #on vérifie que notre tableau inclu bien l'ingrédient
