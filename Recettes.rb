@@ -24,6 +24,7 @@ expectedIngredients = ingredientList.length()
 
 recipesList.each_with_index do |recipe, index|
   #on boucle sur chaque recette de recipesList en mettant l'index en argument afin de le récupérer par la suite
+  # @see https://careerkarma.com/blog/ruby-each-with-index/
   counter = 0
   ingredientList.each do |ingredient|
     normalizedArray = recipe["ingredients"].keys.map(&:downcase)
