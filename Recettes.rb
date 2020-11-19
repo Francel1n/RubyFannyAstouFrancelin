@@ -44,9 +44,11 @@ end
 
 #afficher la recette demandée
 puts "Sélectionnez la recette que vous souhaitez en mentionnant l'index([0]Gateau au chocolat: l'index est 0) "
-recetteIndex = gets.chomp
+recetteIndex = gets.chomp.to_i
 puts " La recette choisie est #{recipesList[recetteIndex.to_i]["recipe_name"]}"
-puts recipesList[recetteIndex.to_i]["ingredients"]
+recipesList[recetteIndex]["ingredients"].each do |clef, valeur|
+    puts clef + " => " + valeur
+end
 puts recipesList[recetteIndex.to_i]["steps"]
 
 #recipesList.each do |item|
