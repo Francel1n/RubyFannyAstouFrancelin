@@ -21,7 +21,7 @@ ingredientList = ingredients.split(",").map(&:downcase)
 #on applique.map(&:downcase) pour passer notre tableau d'ingrédients en minuscules @see https://stackoverflow.com/questions/11402362/how-can-i-uppercase-each-element-of-an-array/11402608
 expectedIngredients = ingredientList.length()
 # on récupère la longueur du tableau
-
+nb = 0
 recipesList.each_with_index do |recipe, index|
   #on boucle sur chaque recette de recipesList en mettant l'index en argument afin de le récupérer par la suite
   # @see https://careerkarma.com/blog/ruby-each-with-index/
@@ -35,29 +35,25 @@ recipesList.each_with_index do |recipe, index|
       counter = counter + 1
       #on ajoute un au compteur
       if expectedIngredients <= counter then
+        nb += 1
         #si le nombre d'ingrédients est plus petit ou égal au nombre d'ingrédients entrés
         puts "[#{index}] #{recipe["recipe_name"]}"
       end
     end
-
-    #afficher la recette demandée
-    puts "Sélectionnez la recette que vous souhaitez en mentionnant l'index([0]Gateau au chocolat: l'index est 0) "
-    recetteIndex = gets.chomp
-    puts " La recette choisie est #{recipesList[recetteIndex.to_i]["recipe_name"]}"
-    puts recipesList[recetteIndex.to_i]["ingredients"]
-    puts recipesList[recetteIndex.to_i]["steps"]
-    end
   end
-  if expectedIngredients <= counter then
-    #si le nombre d'ingrédients est plus petit ou égal au nombre d'ingrédients entrés
-    puts "[#{index}] #{recipe["recipe_name"]}"
-  end
+end
 
+puts "nombre de recette trouvées : #{nb}"
+if nb == 0 then
+#le programme s'arrête car il n'y a pas de résultat
+  puts "oups nous n'avons pas trouvé de recettes, veuillez réessayer!"
+  exit
+end
 
 #afficher la recette demandée
 puts "Sélectionnez la recette que vous souhaitez en mentionnant l'index([0]Gateau au chocolat: l'index est 0) "
 recetteIndex = gets.chomp.to_i
-puts " La recette choisie est #{recipesList[recetteIndex.to_i]["recipe_name"]}"
+puts "La recette choisie est #{recipesList[recetteIndex.to_i]["recipe_name"]}"
 recipesList[recetteIndex]["ingredients"].each do |clef, valeur|
     puts clef + " => " + valeur
 end
@@ -68,4 +64,3 @@ puts recipesList[recetteIndex.to_i]["steps"]
  #   puts item["ingredients"]
  #   puts item["steps"]
  # end
-#end
