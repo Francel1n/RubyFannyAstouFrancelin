@@ -34,20 +34,23 @@ recipesList.each_with_index do |recipe, index|
    #on vérifie que notre tableau inclu bien l'ingrédient
       counter = counter + 1
       #on ajoute un au compteur
+      if expectedIngredients <= counter then
+        #si le nombre d'ingrédients est plus petit ou égal au nombre d'ingrédients entrés
+        puts "[#{index}] #{recipe["recipe_name"]}"
+      end
+    end
+
+    #afficher la recette demandée
+    puts "Sélectionnez la recette que vous souhaitez en mentionnant l'index([0]Gateau au chocolat: l'index est 0) "
+    recetteIndex = gets.chomp
+    puts " La recette choisie est #{recipesList[recetteIndex.to_i]["recipe_name"]}"
+    puts recipesList[recetteIndex.to_i]["ingredients"]
+    puts recipesList[recetteIndex.to_i]["steps"]
+    else
+      puts "J'ai pas trouvé ton ingrédient"
     end
   end
-  if expectedIngredients <= counter then
-    #si le nombre d'ingrédients est plus petit ou égal au nombre d'ingrédients entrés
-    puts "[#{index}] #{recipe["recipe_name"]}"
-  end
-end
 
-#afficher la recette demandée
-puts "Sélectionnez la recette que vous souhaitez en mentionnant l'index([0]Gateau au chocolat: l'index est 0) "
-recetteIndex = gets.chomp
-puts " La recette choisie est #{recipesList[recetteIndex.to_i]["recipe_name"]}"
-puts recipesList[recetteIndex.to_i]["ingredients"]
-puts recipesList[recetteIndex.to_i]["steps"]
 
 #recipesList.each do |item|
  # if item["recipe_name"] == recette
